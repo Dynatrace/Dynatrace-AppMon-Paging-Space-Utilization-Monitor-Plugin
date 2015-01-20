@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+  <extension point="com.dynatrace.diagnostics.pdk.pluginconfig" id="com.dynatrace.diagnostics.plugins.PagingSpaceUtilizationPlugin" name="Paging Space Utilization Plugin">
+    <information>
+      <category value="" />
+      <description value="The Paging Space Utilization Plugin returns the percent usage of the paging space." />
+      <license value="dynaTraceBSD.txt" />
+      <supportlevel value="unsupported" />
+    </information>
+    <configuration>
+      <property key="runningcommand" label="Running Command" type="string" description="Linux Process name." default="" />
+      <property key="method" label="Method" type="string" description="Specify the type of Connection" default="SSH" />
+      <property key="authMethod" label="Authentication Method" type="string" description="Specify the type of SSH Authentication." default="Password" />
+      <property key="serverUsername" label="Username" type="string" description="The username that is used for authorization with the host." default="" />
+      <property key="serverPassword" label="Password" type="password" description="The password for the username." default="" />
+    </configuration>
+  </extension>
+  <extension point="com.dynatrace.diagnostics.pdk.monitor" id="com.dynatrace.diagnostics.plugins.PagingSpaceUtilizationPlugin.monitor" name="Paging Space Utilization Monitor">
+    <plugin configid="com.dynatrace.diagnostics.plugins.PagingSpaceUtilizationPlugin" class="wp.WPMonitor" />
+  </extension>
+  <extension point="com.dynatrace.diagnostics.pdk.monitormetricgroup" id="com.dynatrace.diagnostics.plugins.PagingSpaceUtilizationPlugin.metricgroup1" name="Paging Space Utilization Monitor">
+    <metricgroup monitorid="com.dynatrace.diagnostics.plugins.PagingSpaceUtilizationPlugin.monitor">
+      <metric name="PercentUsage" unit="number" description="Returns count of running processes. " />
+    </metricgroup>
+  </extension>
+</plugin>
+
