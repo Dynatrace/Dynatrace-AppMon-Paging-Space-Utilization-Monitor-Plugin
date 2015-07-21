@@ -8,5 +8,5 @@ This monitor is hard coded to run
     
     "lsps -s | grep MB| awk '{print $2}'| cut -f 1 -d %"
 
-Find further information in the [dynaTrace community](https://community.compuwareapm.com/community/display/DL/Paging+Space+Utilization+Monitor+Plugin)
+Find further information in the [dynaTrace community](https://community.dynatrace.com/community/display/DL/Paging+Space+Utilization+Monitor+Plugin)
 
